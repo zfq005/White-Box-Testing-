@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HelloWorld.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo</a> &gt; <a href="index.source.html" class="el_package">com.test.jacoco</a> &gt; <span class="el_source">HelloWorld.java</span></div><h1>HelloWorld.java</h1><pre class="source lang-java linenums">package com.test.jacoco;
+
+
+import javax.imageio.event.IIOReadWarningListener;
+
+
+public class HelloWorld {
+<span class="fc" id="L8">    public HelloWorld() {</span>
+
+<span class="fc" id="L10">    }</span>
+
+    public String Method1() {
+<span class="fc" id="L13">        return &quot;Hello World&quot;;</span>
+    }
+
+    public int Method2(int a, int b) {
+<span class="fc" id="L17">        return a + b;</span>
+    }
+    
+    public int Method3(int a, int b, int c){
+<span class="fc bfc" id="L21" title="All 6 branches covered.">    	if((a&gt;5&amp;&amp;b&lt;0)||c&gt;0){</span>
+<span class="fc" id="L22">    		System.out.println(&quot;Condition 1&quot;);</span>
+    	}
+<span class="fc bfc" id="L24" title="All 4 branches covered.">    	else if(a&lt;5 &amp;&amp; c&lt;-2 ){</span>
+<span class="fc" id="L25">    		System.out.println(&quot;Condition 2&quot;);</span>
+    	}
+    	else {
+<span class="fc" id="L28">    		System.out.println(&quot;Condition 3&quot;);</span>
+    	}
+<span class="fc" id="L30">    	return 0;</span>
+    }
+    public int Method4(int a, int b, int c, int d, float e) {
+<span class="fc bfc" id="L33" title="All 2 branches covered.">    	if(a == 0) {</span>
+<span class="fc" id="L34">    		return 0;</span>
+    	}
+<span class="fc" id="L36">    	int x = 0;</span>
+<span class="pc bpc" id="L37" title="1 of 6 branches missed.">    	if((a == b) || ((c == d) &amp;&amp; (bug(a)))) {</span>
+<span class="fc" id="L38">    		 x = 1;</span>
+    	}
+<span class="fc" id="L40">    	e = 1/x;</span>
+<span class="fc" id="L41">    	return 0;</span>
+    }
+    public boolean bug(int a) {
+<span class="fc bfc" id="L44" title="All 2 branches covered.">    	if(a == 5) return true;</span>
+<span class="fc" id="L45">    	return false;</span>
+    }
+    
+    
+    public boolean isTriangle(int a, int b, int c) {
+    	/**
+    	 * TODO: You need to complete this method to determine whether  a
+    	 * triangle is formed or not when given the input edge a, b and c.
+    	 */
+<span class="fc bfc" id="L54" title="All 6 branches covered.">		if(a+b&gt;c&amp;&amp;a+c&gt;b&amp;&amp;b+c&gt;a)</span>
+<span class="fc" id="L55">			return true;</span>
+		else
+<span class="fc" id="L57">    		return false;</span>
+    }
+    public boolean isBirthday(int year, int month, int day) {
+    	/**
+    	 * TODO: You need to complete this method to determine whether a 
+    	 * legitimate date of birth between 1990/01/01 and 2019/10/01 is 
+    	 * ormed or not when given the input year, month and day.
+    	 */
+<span class="fc bfc" id="L65" title="All 10 branches covered.">    	if(year&lt;1990||month&lt;1||day&lt;1||year&gt;2019||month&gt;12)</span>
+<span class="fc" id="L66">    		return false;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">    	if(year==2019){</span>
+<span class="fc bfc" id="L68" title="All 4 branches covered.">    		if(month==10&amp;&amp;day&gt;1)</span>
+<span class="fc" id="L69">    			return false;</span>
+		}
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		if(month==2){</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">			if(year%4==0){</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">				if(day&gt;29)</span>
+<span class="fc" id="L74">					return false;</span>
+			}
+			else{
+<span class="fc bfc" id="L77" title="All 2 branches covered.">				if(day&gt;28)</span>
+<span class="fc" id="L78">					return false;</span>
+			}
+		}
+<span class="fc bfc" id="L81" title="All 14 branches covered.">		else if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">			if(day&gt;31)</span>
+<span class="fc" id="L83">				return false;</span>
+		}
+		else{
+<span class="fc bfc" id="L86" title="All 2 branches covered.">			if(day&gt;30)</span>
+<span class="fc" id="L87">				return false;</span>
+		}
+<span class="fc" id="L89">    	return true;</span>
+    	
+    }
+    public Double miniCalculator(double a, double b, char op) {
+    	/**
+    	 * TODO: You need to complete this method to form a small calculator which 
+    	 * can calculate the formula: &quot;a op b&quot;, the op here can be four basic  
+    	 * operation: &quot;+&quot;,&quot;-&quot;,&quot;*&quot;,&quot;/&quot;. 
+    	 */
+<span class="fc" id="L98">    	double result = 0.0;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">    	if(op=='+')</span>
+<span class="fc" id="L100">    		result=a+b;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		else if(op=='-')</span>
+<span class="fc" id="L102">			result=a-b;</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">		else if(op=='*')</span>
+<span class="fc" id="L104">			result=a*b;</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">		else if(op=='/'){</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">			if(b==0)</span>
+<span class="fc" id="L107">				return result;</span>
+			else
+<span class="fc" id="L109">				result=a/b;</span>
+		}
+			else
+<span class="fc" id="L112">				return result;</span>
+<span class="fc" id="L113">    	return result;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
